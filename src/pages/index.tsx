@@ -30,15 +30,15 @@ export default function Home() {
 
       <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
         <div className="flex flex-col gap-8">
-          <Link href="/abount" className="bg-blue-500 text-white py-2 px-3 rounded-md">
+          <Link href="/abount" className="bg-blue-500 text-white py-2 px-3 rounded-md text-center">
             <span>Goto Abount</span>
           </Link>
 
-          <button className="bg-green-600 text-white py-2 px-3 rounded-md" onClick={handleGotoPosts}>
+          <button className="bg-green-600 text-white py-2 px-3 rounded-md text-center" onClick={handleGotoPosts}>
             <span>Goto PostList</span>
           </button>
 
-          <button className="bg-red-500 text-white py-2 px-3 rounded-md" onClick={handleGotoPostDetail}>
+          <button className="bg-red-500 text-white py-2 px-3 rounded-md text-center" onClick={handleGotoPostDetail}>
             <span>Goto Post Detail</span>
           </button>
         </div>
