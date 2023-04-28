@@ -1,5 +1,7 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 type Props = {
@@ -7,6 +9,8 @@ type Props = {
 };
 
 const PostListPage: React.FC<Props> = ({ posts }) => {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -20,7 +24,9 @@ const PostListPage: React.FC<Props> = ({ posts }) => {
         <ul>
           {posts.map((i) => (
             <li key={i.id}>
-              {i.id} - {i.title}
+              <Link href={`${router.pathname}/${i.id}`}>
+                {i.id} - {i.title}
+              </Link>
             </li>
           ))}
         </ul>
