@@ -1,3 +1,4 @@
+import { MainLayout } from '@/layout';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -23,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <MainLayout>
       <Head>
         <title>Learn Nextjs + Typescript</title>
       </Head>
@@ -43,6 +44,6 @@ export default function Home() {
           </button>
         </div>
       </main>
-    </>
+    </MainLayout>
   );
 }

@@ -1,5 +1,5 @@
-import Button from '@/components/Button';
-import Header from '@/components/Header';
+import { Button, Header } from '@/components';
+import { MainLayout } from '@/layout';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -29,7 +29,7 @@ const AbountPage: React.FC<Props> = ({ posts }) => {
   };
 
   return (
-    <>
+    <MainLayout>
       <Head>
         <title>Abount Page</title>
       </Head>
@@ -49,7 +49,7 @@ const AbountPage: React.FC<Props> = ({ posts }) => {
 
         <Button onClick={handleClick}>Next Page</Button>
       </div>
-    </>
+    </MainLayout>
   );
 };
 
