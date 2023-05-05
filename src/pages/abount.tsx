@@ -1,9 +1,8 @@
 import { Button, Header } from '@/components';
-import { MainLayout } from '@/layout';
+import { AdminLayout } from '@/layout';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
 
 //dynamic: dùng để xử lý việc render component ở server hay không, có nhưng component chỉ trinh duyệt mới chạy
 // const Header = dynamic(() => import('@/components/Header'), { ssr: false });
@@ -12,7 +11,7 @@ type Props = {
   posts: any[];
 };
 
-const AbountPage: React.FC<Props> = ({ posts }) => {
+const AbountPage = ({ posts }: Props) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -29,7 +28,7 @@ const AbountPage: React.FC<Props> = ({ posts }) => {
   };
 
   return (
-    <MainLayout>
+    <>
       <Head>
         <title>Abount Page</title>
       </Head>
@@ -49,10 +48,11 @@ const AbountPage: React.FC<Props> = ({ posts }) => {
 
         <Button onClick={handleClick}>Next Page</Button>
       </div>
-    </MainLayout>
+    </>
   );
 };
 
+AbountPage.Layout = AdminLayout;
 export default AbountPage;
 
 export const getStaticProps: GetStaticProps<Props> = async (context: GetStaticPropsContext) => {

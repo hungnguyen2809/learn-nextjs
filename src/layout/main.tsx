@@ -1,8 +1,17 @@
 import { LayoutProps } from '@/models';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const MainLayout: React.FC<LayoutProps> = ({ children }) => {
+  useEffect(() => {
+    console.log('mounted');
+    
+    return () => {
+      console.log('unmounted');
+      
+    }
+  }, [])
+
   return (
     <div>
       <h1>MainLayout</h1>

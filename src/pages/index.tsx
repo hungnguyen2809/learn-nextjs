@@ -1,4 +1,5 @@
 import { MainLayout } from '@/layout';
+import { NextPageWithLayout } from '@/models';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -6,7 +7,7 @@ import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
 
   const handleGotoPosts = () => {
@@ -24,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <MainLayout>
+    <>
       <Head>
         <title>Learn Nextjs + Typescript</title>
       </Head>
@@ -44,6 +45,9 @@ export default function Home() {
           </button>
         </div>
       </main>
-    </MainLayout>
+    </>
   );
-}
+};
+
+Home.Layout = MainLayout;
+export default Home;
