@@ -24,6 +24,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
         try {
           const objData = JSON.parse(body);
 
+          if (!proxyRes.statusCode || proxyRes.statusCode >= 400 || proxyRes.statusCode < 200) {
+            (res as NextApiResponse).status(proxyRes.statusCode || 500).json(objData);
+            return resolve();
+          }
+
           //convert token to cookies
           const cookies = new Cookies(req, res, {
             secure: process.env.NODE_ENV === 'production', //chỉ bảo vệ khi ở môi trường production
